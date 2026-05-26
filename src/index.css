@@ -9,3 +9,17 @@ body {
 .daily-prompt {
   font-size: 2rem;
 }
+
+.modifiers {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.modifier {
+  background-color: #e0e0e0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+}

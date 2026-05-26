@@ -12,3 +12,8 @@ export function getDailyPrompt(prompts) {
   const index = Math.floor(seededRandom(seed) * prompts.length);
   return prompts[index];
 }
+
+export function getRandomModifiers(modifiers, count = 3) {
+  const shuffled = [...modifiers].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+}
