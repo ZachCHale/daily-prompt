@@ -20,11 +20,6 @@ export function getDailyPrompt(prompts) {
   return prompts[index];
 }
 
-export function getRandomModifiers(modifiers, count = 3) {
-  const shuffled = [...modifiers].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, count);
-}
-
 export function getWeeklyTheme(themes) {
   const now = getDate();
   // Find the most recent Sunday
@@ -51,4 +46,15 @@ export function getDailyThemedPrompt(prompts, theme) {
     today.getDate();
   const index = Math.floor(seededRandom(seed) * filtered.length);
   return filtered[index].prompt;
+}
+
+export function getRandomModifiers(modifiers, count = 3) {
+  const categories = Object.keys(modifiers);
+  const shuffledCategories = [...categories].sort(() => Math.random() - 0.5);
+  const selectedCategories = shuffledCategories.slice(0, count);
+  return selectedCategories.map((category) => {
+    const options = modifiers[category];
+    const value = options[Math.floor(Math.random() * options.length)];
+    return { category, value };
+  });
 }
