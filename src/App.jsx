@@ -1,39 +1,25 @@
-import './App.css';
 import themedPrompts from './data/themedPrompts.js';
 import themes from './data/themes.js';
-import modifiers from './data/modifiers/modifiers.js';
-import categoryMeta from './data/modifiers/categoryMeta.js';
-
+import modifiers from './data/modifiers.js';
 import {
-  getDailyPrompt,
   getRandomModifiers,
   getWeeklyTheme,
   getDailyThemedPrompt,
 } from './utils/random.js';
+import WeeklyTheme from './components/WeeklyTheme.jsx';
+import DailyPrompt from './components/DailyPrompt.jsx';
+import ModifierList from './components/ModifierList.jsx';
 
 function App() {
   const weeklyTheme = getWeeklyTheme(themes);
   const prompt = getDailyThemedPrompt(themedPrompts, weeklyTheme);
-  const mods = getRandomModifiers(modifiers);
+  const dailyModifiers = getRandomModifiers(modifiers);
 
   return (
     <div>
-      <h2 className='weekly-theme'>Weekly Theme: {weeklyTheme}</h2>
-      <h1 className='daily-prompt'>{prompt}</h1>
-      <ul className='modifiers'>
-        {mods.map(({ category, value }) => {
-          const { emoji, color } = categoryMeta[category];
-          return (
-            <li
-              key={category}
-              className='modifier'
-              style={{ backgroundColor: color, color: '#ffffff' }}
-            >
-              {emoji} {value}
-            </li>
-          );
-        })}
-      </ul>
+      <WeeklyTheme theme={weeklyTheme} />
+      <DailyPrompt prompt={prompt} />
+      <ModifierList modifiers={dailyModifiers} />
     </div>
   );
 }
