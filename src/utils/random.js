@@ -58,3 +58,19 @@ export function getRandomModifiers(modifiers, count = 3) {
     return { category, value };
   });
 }
+
+export function getWeekDateRange() {
+  const now = getDate();
+  const dayOfWeek = now.getDay();
+
+  const sunday = new Date(now);
+  sunday.setDate(now.getDate() - dayOfWeek);
+
+  const saturday = new Date(sunday);
+  saturday.setDate(sunday.getDate() + 6);
+
+  const format = (date) =>
+    date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+
+  return `${format(sunday)} - ${format(saturday)}`;
+}

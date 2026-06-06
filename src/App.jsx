@@ -1,3 +1,4 @@
+import styles from './App.module.css';
 import themedPrompts from './data/themedPrompts.js';
 import themes from './data/themes.js';
 import modifiers from './data/modifiers.js';
@@ -16,10 +17,11 @@ function App() {
   const dailyModifiers = getRandomModifiers(modifiers);
 
   return (
-    <div>
+    <div className={styles.app}>
       <WeeklyTheme theme={weeklyTheme} />
-      <DailyPrompt prompt={prompt} />
-      <ModifierList modifiers={dailyModifiers} />
+      <main className={styles.main}>
+        <DailyPrompt prompt={prompt} modifiers={dailyModifiers} />
+      </main>
     </div>
   );
 }
