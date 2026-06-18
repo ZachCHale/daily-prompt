@@ -1,5 +1,5 @@
 import styles from './ModifierList.module.css';
-import ModifierPill from './ModifierPill.jsx';
+import ModifierPill from '../ModifierPill/ModifierPill.jsx';
 
 function ModifierList({ modifiers }) {
   return (

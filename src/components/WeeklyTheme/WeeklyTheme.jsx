@@ -1,5 +1,5 @@
 import styles from './WeeklyTheme.module.css';
-import { getWeekDateRange } from '../utils/random.js';
+import { getWeekDateRange } from '../../utils/random.js';
 
 function WeeklyTheme({ theme }) {
   const capitalizedTheme = theme.charAt(0).toUpperCase() + theme.slice(1);

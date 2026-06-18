@@ -7,9 +7,9 @@ import {
   getWeeklyTheme,
   getDailyThemedPrompt,
 } from './utils/random.js';
-import WeeklyTheme from './components/WeeklyTheme.jsx';
-import DailyPrompt from './components/DailyPrompt.jsx';
-import ModifierList from './components/ModifierList.jsx';
+import WeeklyTheme from './components/WeeklyTheme/WeeklyTheme.jsx';
+import DailyPrompt from './components/DailyPrompt/DailyPrompt.jsx';
+import ModifierList from './components/ModifierList/ModifierList.jsx';
 
 function App() {
   const weeklyTheme = getWeeklyTheme(themes);

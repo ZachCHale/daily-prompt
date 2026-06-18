@@ -1,5 +1,5 @@
 import styles from './ModifierPill.module.css';
-import categoryMeta from '../data/categoryMeta.js';
+import categoryMeta from '../../data/categoryMeta.js';
 
 function ModifierPill({ category, value }) {
   const { emoji, color } = categoryMeta[category];

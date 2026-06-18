@@ -1,5 +1,5 @@
 import styles from './DailyPrompt.module.css';
-import ModifierList from './ModifierList.jsx';
+import ModifierList from '../ModifierList/ModifierList.jsx';
 
 function DailyPrompt({ prompt, modifiers }) {
   const today = new Date();
